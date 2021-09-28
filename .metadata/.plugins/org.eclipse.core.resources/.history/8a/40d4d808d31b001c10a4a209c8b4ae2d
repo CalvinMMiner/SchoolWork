@@ -1,0 +1,48 @@
+package FractionStuff;
+
+import java.text.DecimalFormat;
+
+public class Fraction 
+{
+	int numerator;
+	int denominator;
+	
+	Fraction() 
+	{
+		numerator = denominator = 1;  
+		// add code here
+	}
+	
+	Fraction(int n, int d) 
+	{
+		numerator = (n/gcd(n, d));
+		denominator=(d/gcd(n, d));
+		
+	}
+	
+	int gcd(int a, int b) 
+	{
+		if (b == 0)	return (a);
+		else return (gcd(b, a % b));
+	}
+	
+	public String toString() 
+	{    
+		return numerator+"/"+denominator;
+	}
+	
+	String toDecimal() 
+	{
+		DecimalFormat numberFormat = new DecimalFormat("#.000000");
+
+		return numberFormat.format((double)numerator/denominator);
+	}
+
+	Fraction add(Fraction f) 
+	{
+		// add code here
+		return f;
+	}
+	
+}
+ 

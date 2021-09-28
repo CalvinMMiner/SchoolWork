@@ -1,0 +1,69 @@
+
+public class TwoWayTable
+{
+	int numRows; 
+	int numCols;
+	int[][] cell; 
+	int[] rowSum;
+	int[] colSum;  
+	int grandTotal;   
+	
+	// constructor
+	TwoWayTable(int[][] data)
+	{
+		for(int i=0; i<data.length; i++)
+		{
+			for(int o=0; o<data[i].length; o++)
+			{
+				cell[i][o] =data[i][o]; 
+			}
+		}
+		setMargins();
+	}
+	
+	void setMargins()
+	{       
+		for(int i=0; i<cell.length; i++)
+		{
+			numRows += cell[i][i];
+			for(int o=0; o<cell[i].length; o++)
+			{
+				numRows += cell[o][i];
+				numCols += cell[i][o];
+			}
+			grandTotal += numRows; grandTotal += numCols;
+			rowSum[i] = numRows;
+			colSum[i] = numCols;
+		}
+	}
+	
+	public String toString()
+	{
+		String text = "";
+		for(int i=0; i<cell.length; i++)
+		{
+			for(int o=0; o<cell.length; o++)
+			{
+				text += cell[i][o]; 
+				if(o==cell.length) text += "| "+ rowSum[i] + "\n";
+			}
+			
+			if(i==cell.length) 
+			{
+				for(int o=0; o<cell.length; o++)
+				{
+					text+="--";
+				}
+				text+="\n";
+				for(int o=0; o<cell.length; o++)
+				{
+					text+=colSum[o];
+				}
+				text+="| "+ grandTotal;
+			}
+		}
+		
+		return text;
+	}
+	
+}

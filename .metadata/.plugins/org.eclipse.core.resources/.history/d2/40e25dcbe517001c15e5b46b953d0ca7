@@ -1,0 +1,33 @@
+
+public class TwoWayTable
+{
+	int numRows; 
+	int numCols;
+	int[][] cell; 
+	int[] rowSum;
+	int[] colSum;  
+	int grandTotal;   
+	
+	// constructor
+	TwoWayTable(int[][] data)
+	{
+		
+		for(int i=0; i<data.length; i++)
+		{
+			rowSum[i] = data[i];
+			for(int o=0; o<data[i].length; o++)
+			{
+				
+			}
+		}
+		setMargins();
+	}
+	
+	void setMargins()
+	{       
+		// compute the row and column sums;    
+		// “margins” is the statistician’s term       
+		// for these totals, since they appear    
+		// “in the margins”
+	}
+}

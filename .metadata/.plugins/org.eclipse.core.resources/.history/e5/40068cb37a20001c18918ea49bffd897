@@ -1,0 +1,14 @@
+import java.util.Random;
+public class TestArithmetic 
+{
+	static Random r = new Random();
+
+
+	public static void main(String[] args) 
+	{
+				
+		Node n = new Plus(new Plus(new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)),new Const(r.nextInt(20)+1));
+		
+		System.out.println(n+" = "+ n.eval());
+	}
+}
