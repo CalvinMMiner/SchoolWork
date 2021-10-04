@@ -10,8 +10,6 @@ public class Binop extends Node
 	public String toString()
 	{
 		return lChild.toString() + " + "+rChild.toString();
-	}
 
-	//basic eval so Binop can extend node
-	public double eval(double[] data) {	return 0; }
+	}
 }
