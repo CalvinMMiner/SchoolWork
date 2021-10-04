@@ -1,0 +1,20 @@
+// like const this class holds a value to be used by the other classes, however this value is not  set until eval is called
+public class Variable extends Node 
+{
+	private static int number;//keeps track of how many variables have been created
+	private int index = 0;//records the order in which the objects where created  
+
+	//sets index to number  and then increments number to keep track of the order in which this object was created
+	public Variable() 
+	{
+		index = number;
+		number++;
+	}
+		
+	public double eval(double[] data) {double value; return (value=data[index]); }
+		
+	public String toString()
+	{
+		return "X"+index;
+	}
+}

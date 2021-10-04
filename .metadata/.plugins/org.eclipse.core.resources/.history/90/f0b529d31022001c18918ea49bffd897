@@ -1,0 +1,55 @@
+import java.util.Random;
+import java.text.DecimalFormat;
+//This class uses Node and its descendants to perform some basic algebra with variables
+public class TestAlgebra 
+{
+	static Random r = new Random();//used to randomize the classes and constants
+
+	//the main method uses the methods randOperator and randOperatorAndConstents to generate the Algebra expressions
+	public static void main(String[] args) 
+	{
+		double[] data = {1,2,3};
+		Node n = (Node) randOperator();
+		
+		Variable x1 = new Variable();
+		Variable x2 = new Variable();
+		Variable x3 = new Variable();
+		
+		System.out.println(x1.eval(data)+""+x2.eval(data)+""+x3.eval(data));
+		
+		
+		DecimalFormat numberFormat = new DecimalFormat("#0.0");
+		System.out.println(n+" = "+ numberFormat.format(n.eval(data)));
+		
+
+	}
+	
+	//Determines which operation is in the middle
+	private static Node randOperator()
+	{
+		switch(r.nextInt(4))
+		{
+			case 0: Plus  p = new Plus  (randOperatorAndConstents(),randOperatorAndConstents()); return p;
+			case 1: Minus m = new Minus (randOperatorAndConstents(),randOperatorAndConstents()); return m;
+			case 2: Mult  M = new Mult  (randOperatorAndConstents(),randOperatorAndConstents()); return M;
+			case 3:Divide d = new Divide(randOperatorAndConstents(),randOperatorAndConstents()); return d;
+		}
+				
+		return null;
+	}
+		
+	//Determines which operations happen on the sides and what the numbers involved are
+	private static Node randOperatorAndConstents()
+	{
+		switch(r.nextInt(4))
+		{
+			case 0: Plus  p = new Plus  (new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return p;
+			case 1: Minus m = new Minus (new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return m;
+			case 2: Mult  M = new Mult  (new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return M;
+			case 3:Divide d = new Divide(new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return d;
+		}
+				
+		return null;
+	}
+}
+

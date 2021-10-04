@@ -1,10 +1,12 @@
 import java.util.Random;
 import java.text.DecimalFormat;
 
+//This class uses Node and its descendants to perform some basic Arithmetic with { + - * / }
 public class TestArithmetic 
 {
-	static Random r = new Random();
+	static Random r = new Random();//used to randomize the classes and constants
 
+	//the main method uses the methods randOperator and randOperator1 to generate the Arithmetic expressions
 	public static void main(String[] args) 
 	{
 		for(int i =0;i<5;i++)
@@ -15,7 +17,8 @@ public class TestArithmetic
 		}
 
 	}
-			
+		
+	//Determines which operation is in the middle
 	private static Node randOperator()
 	{
 		switch(r.nextInt(4))
@@ -28,7 +31,8 @@ public class TestArithmetic
 				
 		return null;
 	}
-			
+	
+	//Determines which operations happen on the sides and what the numbers involved are
 	private static Node randOperator1()
 	{
 		switch(r.nextInt(4))

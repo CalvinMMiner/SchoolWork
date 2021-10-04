@@ -1,3 +1,4 @@
+//this class creates a two dimensional array to be used in TestTwoWayTable to show it works
 public class TestTwoWayTable 
 {
 	public static void main(String[] args) 

@@ -1,0 +1,16 @@
+public class Variable extends Node 
+{
+	private double value;
+		
+	public Variable(double d) 
+	{
+		value = d; 
+	}
+		
+	public double eval(double[] data) { return value; }
+		
+	public String toString()
+	{
+		return Double.toString(value);
+	}
+}

@@ -1,4 +1,4 @@
-
+//this class takes in a two dimensional array and calculates the row Sum, column Sum, and grand Total, then prints it out in a formated fashion 
 public class TwoWayTable
 {
 	int numRows; 
@@ -8,6 +8,7 @@ public class TwoWayTable
 	int[] colSum;  
 	int grandTotal;   
 	
+	//takes a two dimensional array and uses it to set a number of variables for internal use
 	TwoWayTable(int[][] data)
 	{
 		cell = new int[data.length][data.length];
@@ -24,6 +25,7 @@ public class TwoWayTable
 		setMargins();
 	}
 	
+	//this method calculates the row Sum, column Sum, and grand Total and sets the respective variables 
 	void setMargins()
 	{       
 		for(int i=0; i<cell.length; i++)
@@ -41,6 +43,7 @@ public class TwoWayTable
 		}
 	}
 	
+	//this prints out the two dimensional array with additional formating and the row Sum, column Sum, and grand Total
 	public String toString()
 	{
 		String text = "";

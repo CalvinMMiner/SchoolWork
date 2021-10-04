@@ -1,7 +1,10 @@
 import java.util.Scanner;
+
+//this class uses game and the scanner to simulate a vast number a games
+//scanner is used to determine if the switch method is called
+// and once the simulation is complete it prints out the % of wins 
 public class PlayManyGames 
 {
-	
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in);

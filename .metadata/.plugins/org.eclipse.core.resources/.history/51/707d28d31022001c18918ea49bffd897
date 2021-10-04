@@ -1,0 +1,19 @@
+// like const this class holds a value to be used by the other classes, however this value is not  set until eval is called
+public class Variable extends Node 
+{
+	private static int number;
+	private int index = 0;
+	private double value;//		
+	public Variable() 
+	{
+		index = number;
+		number++;
+	}
+		
+	public double eval(double[] data) { return (value=data[index]); }
+		
+	public String toString()
+	{
+		return "X"+index;
+	}
+}

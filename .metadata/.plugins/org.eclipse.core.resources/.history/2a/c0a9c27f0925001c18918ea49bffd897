@@ -1,0 +1,70 @@
+import java.util.Random;
+import java.text.DecimalFormat;
+
+//This class uses Node and its descendants to perform some basic algebra with variables
+public class TestAlgebra 
+{
+	static Random r = new Random();//used to ensure the random number are different when called across different methods 
+
+	//the main method uses the methods randOperator and randOperatorAndConstents to generate the Algebra expressions
+	public static void main(String[] args) 
+	{
+		DecimalFormat numberFormat = new DecimalFormat("#0.0");
+		int depth = 1;
+		Node n = (Node) randOperator(depth, 0);
+		Node m = (Node) randOperator(depth, 0);
+		double[] data1 = {1,2,3};
+		double[] data2 = {4,5,6};
+				
+		System.out.println(n+" = "+ numberFormat.format(n.eval(data1)));
+		System.out.println(m+" = "+ numberFormat.format(m.eval(data2)));
+	}
+	
+	//Determines which operation forms the middle of the tree and calls randOperatorAndConstents to define the branches. Resets the variables at the start
+	private static Node randOperator(int depth, int currentDepth)
+	{
+		Variable v = new Variable(); v.restNumber();
+		if(currentDepth<depth)
+		{
+			currentDepth++;
+			switch(r.nextInt(4))
+			{
+				case 0: Plus  p = new Plus  (currentDepth<depth	? (randOperator(depth,currentDepth)) : ConstentsOrVariables() , currentDepth<depth ? (randOperator(depth,currentDepth)) : ConstentsOrVariables()); return p;
+				case 1: Minus m = new Minus (randOperator(depth,currentDepth),randOperator(depth,currentDepth)); return m;
+				case 2: Mult  M = new Mult  (randOperator(depth,currentDepth),randOperator(depth,currentDepth)); return M;
+				case 3:Divide d = new Divide(randOperator(depth,currentDepth),randOperator(depth,currentDepth)); return d;
+			}
+		}
+		
+		switch(r.nextInt(4))
+		{
+			case 0: Plus  p = new Plus  (ConstentsOrVariables(), ConstentsOrVariables()); return p;
+			case 1: Minus m = new Minus (ConstentsOrVariables(), ConstentsOrVariables()); return m;
+			case 2: Mult  M = new Mult  (ConstentsOrVariables(), ConstentsOrVariables()); return M;
+			case 3:Divide d = new Divide(ConstentsOrVariables(), ConstentsOrVariables()); return d;
+		}
+		return null;
+	}
+			
+	//uses a random Boolean to return a constant or a variable at a roughly 50/50 rate
+	private static Node ConstentsOrVariables()
+	{
+		if (r.nextBoolean()){	Const 	c = new Const(r.nextInt(20)+1);	return c;	}
+		else{	Variable v = new Variable();	return v;	}
+	}
+	
+	/**Commented out because it is not used in this version
+	 * Determines which operations end the branches and what numbers are used in the operation
+	private static Node randOperatorAndConstants()
+	{
+		switch(r.nextInt(4))
+		{
+			case 0: Plus  p = new Plus  (new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return p;
+			case 1: Minus m = new Minus (new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return m;
+			case 2: Mult  M = new Mult  (new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return M;				
+			case 3:Divide d = new Divide(new Const(r.nextInt(20)+1), new Const(r.nextInt(20)+1)); return d;
+		}				
+	return null;
+	} **/
+}
+
