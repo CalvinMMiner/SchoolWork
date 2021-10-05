@@ -12,7 +12,7 @@ public class Minus extends Binop
 	//this returns the toStrings of the branches concatenated with a -
 	public String toString()
 	{
-		return "(" +lChild.toString() + " - "+rChild.toString() +")";
+		return "( " +lChild.toString() + " - "+rChild.toString() +" )";
 
 	}
 }

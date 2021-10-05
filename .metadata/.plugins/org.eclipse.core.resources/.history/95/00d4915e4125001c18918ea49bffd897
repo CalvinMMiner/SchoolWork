@@ -1,24 +1,23 @@
 import java.util.Random;
 import java.text.DecimalFormat;
 
-//This class uses a set of operations, constants, and variables extended from node to perform some basic algebra with variables
+//This class uses Node and its descendants to perform some basic algebra with variables
 public class TestAlgebra 
 {
 	static Random r = new Random();//used to ensure the random number are different when called across different methods 
 
-	//the main method supplies a pair of ints to randOperator to create a binary tree then prints the tree concatenated with a eval, this is done twice
+	//the main method uses the methods randOperator and randOperatorAndConstents to generate the Algebra expressions
 	public static void main(String[] args) 
 	{
 		DecimalFormat numberFormat = new DecimalFormat("#0.0");
-		int depth = 1;
-		
+		int depth = 5;
+		Node n = (Node) randOperator(depth, 0);
+		Node m = (Node) randOperator(depth, 0);
 		double[] data1 = {1,2,3};
-		Node n =  randOperator(depth, 0);
-		System.out.println(n+" = "+ numberFormat.format(n.eval(data1)));
-		
 		double[] data2 = {4,5,6};
-		n =  randOperator(depth, 0);		
-		System.out.println(n+" = "+ numberFormat.format(n.eval(data2)));
+				
+		System.out.println(n+" = "+ numberFormat.format(n.eval(data1)));
+		System.out.println(m+" = "+ numberFormat.format(m.eval(data2)));
 	}
 	
 	//creates a binary tree. uses operation based nodes for the branches and terminates with either a const or a variable. tree size is determined by depth
@@ -43,7 +42,7 @@ public class TestAlgebra
 	private static Node RandomConstentsOrVariables()
 	{
 		if (r.nextBoolean()){	Const 	c = new Const(r.nextInt(20)+1);	return c;	}
-		else				{	Variable v = new Variable();			return v;	}
+		else{	Variable v = new Variable();	return v;	}
 	}
 }
 

@@ -6,7 +6,7 @@ public class TestAlgebra
 {
 	static Random r = new Random();//used to ensure the random number are different when called across different methods 
 
-	//the main method supplies a pair of ints to randOperator to create a binary tree then prints the tree concatenated with a eval, this is done twice
+	//the main method uses the methods randOperator and randOperatorAndConstents to generate the Algebra expressions
 	public static void main(String[] args) 
 	{
 		DecimalFormat numberFormat = new DecimalFormat("#0.0");
