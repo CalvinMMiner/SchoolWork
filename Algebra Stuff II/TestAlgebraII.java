@@ -2,7 +2,7 @@ import java.util.Random;
 import java.text.DecimalFormat;
 
 //This class uses a set of operations, constants, and variables extended from node to perform some basic algebra with variables
-public class TestAlgebra 
+public class TestAlgebraII
 {
 	static Random r = new Random();//used to ensure the random number are different when called across different methods 
 
@@ -27,24 +27,32 @@ public class TestAlgebra
 		currentDepth++;
 			switch(r.nextInt(4) )
 			{
-				case 0: Plus  p = new Plus  ( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ) ,
-										      (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ) ); return p;
-				case 1: Minus m = new Minus ( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ),
-											  (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ) ); return m;
-				case 2: Mult  M = new Mult  ( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ),
-											  (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ) ); return M;
-				case 3:Divide d = new Divide( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ),
-											  (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ) ); return d;
+				case 0: Plus  p = new Plus  ( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ) ,
+										      (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ) ); return p;
+				case 1: Minus m = new Minus ( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ),
+											  (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ) ); return m;
+				case 2: Mult  M = new Mult  ( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ),
+											  (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ) ); return M;
+				case 3:Divide d = new Divide( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ),
+											  (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstenOrVariable() ) ); return d;
 				default:return null;
 			}
 	}
 			
 	//uses a random Boolean to return a constant or a variable at a roughly 50/50 rate
-	private static Node RandomConstentsOrVariables()
+	private static Node RandomConstenOrVariable()
 	{
 		Node n;
 		if (r.nextBoolean())return n = new Const(r.nextInt(20)+1);	
 		return n = new Variable();	
-	}
+	}	
+	
+	//takes a provided Boolean and returns a constant or a variable 
+		private static Node ConstentOrVariable(Boolean b)
+		{
+			Node n;
+			if (b)return n = new Const(r.nextInt(20)+1);	
+					return n = new Variable();	
+		}	
 }
 
