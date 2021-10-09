@@ -13,17 +13,26 @@ public class TestAlgebra
 		int depth = 1;
 		
 		double[] data1 = {1,2,3};
-		Node n =  randOperator(depth, 0);
+		Node n =  randOperator(depth);
 		System.out.println(n+" = "+ numberFormat.format(n.eval(data1)));
 		
 		double[] data2 = {4,5,6};
-		n =  randOperator(depth, 0);		
+		n =  randOperator(depth);		
 		System.out.println(n+" = "+ numberFormat.format(n.eval(data2)));
 	}
 	
-	//creates a binary tree. uses operation based nodes for the branches and terminates with either a const or a variable. tree size is determined by depth
-	private static Node randOperator(int depth, int currentDepth)
+	//creates a binary tree. uses operation nodes picked from a Binop array for the branches and terminates with a Consent. tree size is determined by depth
+	private static Node randOperator(int depth)
 	{
+		Node L,R;
+		Random r = new Random();
+		if(depth-->0) { L = randOperator(depth); R = randOperator(depth);	}
+		else { L = RandomConstentsOrVariables(); R = RandomConstentsOrVariables();	}
+			
+		Binop[] ops = {new Plus(L,R), new Minus(L,R), new Mult(L,R), new Divide(L,R)};
+		return ops[r.nextInt(4)];
+	}
+		/** its bulky but I like what I came up with, keeping it in here as a reminder 
 		currentDepth++;
 			switch(r.nextInt(4) )
 			{
@@ -36,9 +45,9 @@ public class TestAlgebra
 				case 3:Divide d = new Divide( (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ),
 											  (currentDepth<=depth ? (randOperator(depth,currentDepth) ) : RandomConstentsOrVariables() ) ); return d;
 				default:return null;
-			}
-	}
-			
+				
+			}*/
+	
 	//uses a random Boolean to return a constant or a variable at a roughly 50/50 rate
 	private static Node RandomConstentsOrVariables()
 	{

@@ -1,19 +1,11 @@
 //basic node that sets the foundations for the more complex classes
-public class Node 
+public abstract class Node 
 {
 	public Node() {	}
 		
-	//base method to be replaced in the more complex classes
-	public double eval() 
-	{
-		System.out.println("Error: eval Node");
-		return 0;
-	}
+	//abstract method to be replaced in the more complex classes
+	public abstract double eval();
 	
-	//base method to be replaced in the more complex classes
-	public String toString()
-	{
-		return null;
-
-	}
+	//abstract method to be replaced in the more complex classes
+	public abstract String toString();
 }
