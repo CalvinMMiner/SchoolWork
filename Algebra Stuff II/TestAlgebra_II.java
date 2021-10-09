@@ -2,7 +2,7 @@ import java.util.Random;
 import java.text.DecimalFormat;
 
 //This class uses a set of operations, constants, and variables extended from node to perform some basic algebra with variables
-public class TestAlgebraII
+public class TestAlgebra_II
 {
 	static Random r = new Random();//used to ensure the random number are different when called across different methods 
 
