@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.text.DecimalFormat;
 
 //This class uses a set of operations, constants, and variables extended from node to perform some basic algebra with variables
 public class TestAlgebra 
@@ -9,17 +8,17 @@ public class TestAlgebra
 	//the main method supplies a pair of ints to randOperator to create a binary tree then prints the tree concatenated with a eval, this is done twice
 	public static void main(String[] args) 
 	{
-		DecimalFormat numberFormat = new DecimalFormat("#0.0");
+
 		int depth = 1;
 		
 		double[] data1 = {1,2,3};
 		Node L=null;Node R = null;
 		Node n =  randOperator(depth, L, R);
-		System.out.println(n+" = "+ numberFormat.format(n.eval(data1)));
+		System.out.println(n+" = "+ n.eval(data1));
 		
 		double[] data2 = {4,5,6};
 		n =  randOperator(depth, L, R);		
-		System.out.println(n+" = "+ numberFormat.format(n.eval(data2)));
+		System.out.println(n+" = "+ n.eval(data2));
 	}
 	
 	//creates a binary tree. uses operation nodes picked from a Binop array for the branches and terminates with a Consent. tree size is determined by depth

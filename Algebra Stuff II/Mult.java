@@ -1,3 +1,5 @@
+import java.util.Random;
+
 //this class takes two doubles and multiples them together
 public class Mult extends Binop 
 {

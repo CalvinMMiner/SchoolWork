@@ -1,3 +1,5 @@
+import java.util.Random;
+
 //this class holds a static number that is to be used in the other classes
 public class Const extends Node 
 {
@@ -18,4 +20,7 @@ public class Const extends Node
 		return Double.toString(value);
 
 	}
+	
+	//blank method to conform to node
+	public void addRandomKids(OperatorFactory o,    TerminalFactory t, int maxDepth, Random rand) {}
 }

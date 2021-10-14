@@ -1,3 +1,5 @@
+import java.util.Random;
+
 // like const this class holds a value to be used by the other classes, however this value is not  set until eval is called
 public class Variable extends Node 
 {
@@ -31,4 +33,7 @@ public class Variable extends Node
 	{
 		return "X"+index;
 	}
+	
+	//blank method to conform to node
+	public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) {}
 }

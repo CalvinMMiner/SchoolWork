@@ -1,3 +1,5 @@
+import java.util.Random;
+
 //basic node that sets the foundations for the more complex classes
 public abstract class Node 
 {
@@ -8,4 +10,21 @@ public abstract class Node
 	
 	//abstract method to be replaced in the more complex classes
 	public abstract String toString();
+
+	//abstract method to be replaced in the more complex classes
+	public abstract void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand);  
+	
+	public Object clone() 
+	{
+		Object o = null;
+		try 
+		{
+			o =  super.clone();        
+		}        
+		catch(CloneNotSupportedException e) 
+		{
+			System.out.println("SimpleClass can't clone.");        
+		}
+		return o;    
+	}
 }
