@@ -12,6 +12,12 @@ public class Variable extends Node
 		index = number;
 		number++;
 	}
+
+	//Constructor that allows for index to be set manually 
+	public Variable(int I) 
+	{
+		index = I;
+	}
 		
 	//creates a double, sets it to a value from data, determined by index, and then returns that double. set in a try catch to make sure index is within the bounds of data
 	public double eval(double[] data)
@@ -23,7 +29,7 @@ public class Variable extends Node
 		}
 		catch(Exception E )
 		{
-			index = 0;
+			index = index-data.length;
 			return eval(data);
 		}
 	}

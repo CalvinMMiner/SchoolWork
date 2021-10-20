@@ -23,7 +23,7 @@ public class TestAlgebra_II
         System.out.println(s + " = " + root.eval(data));    
 	}
 	
-	//creates a binary tree. uses operation nodes picked from a Binop array for the branches and terminates with a Consent. tree size is determined by depth
+	/**creates a binary tree. uses operation nodes picked from a Binop array for the branches and terminates with a Consent. tree size is determined by depth
 	private static Node randOperator(int depth,Node L,Node R)
 	{
 		if(depth-->0) { L = randOperator(depth, L, R); R = randOperator(depth, L, R);	}
@@ -38,5 +38,5 @@ public class TestAlgebra_II
 	{
 		if (r.nextBoolean())return n = new Const(r.nextInt(20)+1);	
 		return n = new Variable();	
-	}
+	}**/
 }

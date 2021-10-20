@@ -1,5 +1,3 @@
-import java.util.Random;
-
 //this class takes two doubles and adds them together 
 public class Plus extends Binop 
 {

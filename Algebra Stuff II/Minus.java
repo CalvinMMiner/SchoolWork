@@ -1,5 +1,3 @@
-import java.util.Random;
-
 //this class takes two doubles and subtracts them for each other
 public class Minus extends Binop 
 {

@@ -21,7 +21,7 @@ public class Variable extends Node
 		}
 		catch(Exception E )
 		{
-			index = 0;
+			index = index-data.length;
 			return eval(data);
 		}
 	}

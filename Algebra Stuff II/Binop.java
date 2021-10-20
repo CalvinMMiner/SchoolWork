@@ -20,7 +20,7 @@ public class Binop extends Node
 	//basic eval so Binop can extend node
 	public double eval(double[] data) {	return 0; }
 	
-	public void addRandomKids(OperatorFactory o,    TerminalFactory t, int maxDepth, Random rand) 
+	public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) 
 	{
 		
 	}
