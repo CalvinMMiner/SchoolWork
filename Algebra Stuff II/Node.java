@@ -14,7 +14,7 @@ public abstract class Node implements Cloneable
 	//abstract method to be replaced in the more complex classes
 	public abstract void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand);  
 	
-	//method to be used by the extended methods
+	//method to comply with Cloneable interface
 	public Object clone() 
 	{
 		Object o = null;
