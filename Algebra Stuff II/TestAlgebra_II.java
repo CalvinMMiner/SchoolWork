@@ -20,23 +20,6 @@ public class TestAlgebra_II
         Node root = o.getOperator(r);
         root.addRandomKids(o, t, maxDepth, r);
         String s = root.toString();
-        System.out.println(s + " = " + root.eval(data));    
+        System.out.println("\n"+s + " = " + root.eval(data));    
 	}
-	
-	/**creates a binary tree. uses operation nodes picked from a Binop array for the branches and terminates with a Consent. tree size is determined by depth
-	private static Node randOperator(int depth,Node L,Node R)
-	{
-		if(depth-->0) { L = randOperator(depth, L, R); R = randOperator(depth, L, R);	}
-		else {  L = RandomConstentsOrVariables(L); R = RandomConstentsOrVariables(R);	}
-			
-		Binop[] ops = {new Plus(L,R), new Minus(L,R), new Mult(L,R), new Divide(L,R)};
-		return ops[r.nextInt(4)];
-	}
-	
-	//uses a random Boolean to return a constant or a variable at a roughly 50/50 rate
-	private static Node RandomConstentsOrVariables(Node n)
-	{
-		if (r.nextBoolean())return n = new Const(r.nextInt(20)+1);	
-		return n = new Variable();	
-	}**/
 }

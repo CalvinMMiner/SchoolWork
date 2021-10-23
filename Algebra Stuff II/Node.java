@@ -3,7 +3,7 @@ import java.util.Random;
 //basic node that sets the foundations for the more complex classes
 public abstract class Node implements Cloneable
 {
-	public Node() {	}
+	public Node() {}
 		
 	//abstract method to be replaced in the more complex classes
 	public abstract double eval(double[] data);
