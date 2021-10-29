@@ -7,8 +7,8 @@ public class CatsAndDogs
 		ArrayList<Cat> cats = new ArrayList<Cat>();
 		for (int i = 0; i < 7; i++) 
 			cats.add(new Cat(i));// here’s trouble
-			cats.add((Collection<? extends Cat>) new Dog(8));
+			//cats.add(new Dog(8));
 			for(int i = 0; i < cats.size(); i++)  
-				(  (Cat) cats.get(i) ).print();
+				(  cats.get(i) ).print();
 	}
 }

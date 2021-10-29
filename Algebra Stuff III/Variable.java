@@ -33,4 +33,7 @@ public class Variable extends Node
 	
 	//blank method to conform to node
 	public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) {}
+
+	//returns 1 since no nodes will be beneath this
+	public int mySize() {return 1;}
 }

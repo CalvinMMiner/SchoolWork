@@ -5,14 +5,17 @@ public abstract class Node implements Cloneable
 {
 	public Node() {}
 		
-	//abstract method to be replaced in the more complex classes
+	//abstract method to be replaced in the more complex classes will allow operator objects to evaulate given doubles
 	public abstract double eval(double[] data);
 	
-	//abstract method to be replaced in the more complex classes
+	//abstract method to be replaced in the more complex classes template for toString
 	public abstract String toString();
 
-	//abstract method to be replaced in the more complex classes
+	//abstract method to be replaced in the more complex classes will add child nodes 
 	public abstract void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand);  
+	
+	//abstract method to be replaced in the more complex classes that will return the number of nodes "bellow" 
+	public abstract int mySize();
 	
 	//method to comply with Cloneable interface
 	public Object clone() 

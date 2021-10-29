@@ -18,13 +18,16 @@ public class Binop extends Node
 	//basic eval so Binop can extend node
 	public double eval(double[] data) {	return 0; }
 	
+	//returns the combined size of both child nodes, which in turn do the same until a terminal node is hit
+	public int mySize() {return (lChild.mySize() + rChild.mySize());}
+	
 	/**this class is used to create the algebra expression: when called depth is incremented by one, saved in personalDepth and checked to see if it has hit or exceeded max depth
 	if not and a if statement is used to determine if a new operation is added to the right node, or if it terminates. once that operation concludes depth is reset to personalDepth to
 	account for any recursions done to add operations and the process is repeated for the left node**/
 	public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) 
 	{
 		depth++; int personalDepth = depth;
-		
+
 		if (depth>=maxDepth) {  lChild = t.getTerminal(rand);	rChild = t.getTerminal(rand);	}
 		else
 		{
@@ -35,6 +38,7 @@ public class Binop extends Node
 			{	 rChild = o.getOperator(rand); rChild.addRandomKids(o, t, maxDepth, rand);		}	else rChild = t.getTerminal(rand); 
 		}
 	}
+	
 }
 /**saving the debug version of addRandomKIds just in case I need it latter
 public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) 

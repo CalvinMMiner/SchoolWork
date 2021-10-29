@@ -8,7 +8,11 @@ public class Divide extends Binop
 	public Divide() {}
 
 	//the method that divides the doubles, it also passes down data to be used by variables on the lower branches
-	public double eval(double[] data){	return Double.parseDouble(numberFormat.format(lChild.eval(data) / rChild.eval(data)));	}
+	public double eval(double[] data)
+	{
+		if(lChild.eval(data) / rChild.eval(data) <= 0.0001)	return Double.parseDouble(numberFormat.format(lChild.eval(data) / rChild.eval(data)));	
+		return 1;
+		}
 	
 	//this returns the toStrings of the branches concatenated with a /
 	public String toString(){	return "(" +lChild.toString() + " / "+rChild.toString() +")";	}
