@@ -27,7 +27,6 @@ public class Binop extends Node
 	public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) 
 	{
 		depth++; int personalDepth = depth;
-
 		if (depth>=maxDepth) {  lChild = t.getTerminal(rand);	rChild = t.getTerminal(rand);	}
 		else
 		{

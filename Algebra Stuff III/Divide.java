@@ -10,7 +10,7 @@ public class Divide extends Binop
 	//the method that divides the doubles, it also passes down data to be used by variables on the lower branches
 	public double eval(double[] data)
 	{
-		if(lChild.eval(data) / rChild.eval(data) <= 0.0001)	return Double.parseDouble(numberFormat.format(lChild.eval(data) / rChild.eval(data)));	
+		if(rChild.eval(data) <= 0.0001)	return Double.parseDouble(numberFormat.format(lChild.eval(data) / rChild.eval(data)));	
 		return 1;
 		}
 	
