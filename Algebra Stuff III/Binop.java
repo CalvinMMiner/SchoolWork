@@ -19,7 +19,7 @@ public class Binop extends Node
 	public double eval(double[] data) {	return 0; }
 	
 	//returns the combined size of both child nodes, which in turn do the same until a terminal node is hit
-	public int mySize() {return (lChild.mySize() + rChild.mySize());}
+	public int mySize() {return (lChild.mySize() + rChild.mySize()+1);}
 	
 	/**this class is used to create the algebra expression: when called depth is incremented by one, saved in personalDepth and checked to see if it has hit or exceeded max depth
 	if not and a if statement is used to determine if a new operation is added to the right node, or if it terminates. once that operation concludes depth is reset to personalDepth to

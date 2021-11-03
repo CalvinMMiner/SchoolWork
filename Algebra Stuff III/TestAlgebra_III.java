@@ -13,6 +13,6 @@ public class TestAlgebra_III
     	OperatorFactory o = new OperatorFactory(ops);
     	TerminalFactory t = new TerminalFactory(numIndepVars);
     	GPTree gpt = new GPTree(o, t, maxDepth, r);
-    	System.out.println(gpt + " = " + gpt.eval(data));    
+    	System.out.println(gpt + " = " + gpt.eval(data)+" the size is: "+gpt.mySize());    
     }
 }
