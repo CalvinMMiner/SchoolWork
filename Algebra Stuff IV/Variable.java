@@ -23,13 +23,13 @@ public class Variable extends Node
 		catch(Exception E )
 		{
 			try {	index = index-data.length;	}
-			catch(Exception B ) {	index = 0; System.out.println("something whent wromg");}
+			catch(Exception B ) {	index = 0; System.out.println("something whent wromg"); }
 			return eval(data);
 		}
 	}
 	
 	//returns X + index to denote the order of creation 
-	public String toString(){	return "X"+index;	}
+	public String toString(){	return "X" + index;	}
 	
 	//blank method to conform to node
 	public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) {}

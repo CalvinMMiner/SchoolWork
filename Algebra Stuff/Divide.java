@@ -1,5 +1,4 @@
 import java.text.DecimalFormat;
-import java.util.Random;
 
 //this class takes two doubles and divides them by each other
 public class Divide extends Binop 

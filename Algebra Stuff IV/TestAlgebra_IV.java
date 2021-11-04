@@ -1,7 +1,7 @@
 import java.util.Random;
 
 //This class uses the classes GPTree, OperatorFactory, and TerminalFactory to create and evaluate a random algebra expression 
-public class TestAlgebra_III
+public class TestAlgebra_IV
 {
 	static Random r = new Random();//used to ensure the random number are different when called across different methods 
 	static int numIndepVars = 3;
