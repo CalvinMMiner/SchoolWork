@@ -7,7 +7,7 @@ public class DataSet
 	private static Scanner in;
 	private int independentVars;
 	private int NumberOfRows;
-	private DataRow Rows[];
+	public DataRow Rows[];
 	
 	public DataSet(String DataName)throws FileNotFoundException
     {
@@ -16,14 +16,12 @@ public class DataSet
 	       NumberOfRows = in.nextInt();
 	       Rows = new DataRow[NumberOfRows];
 	       for(int a = 0; a < NumberOfRows; a++)
-	       {
 	    	   Rows[a] = new DataRow(in,independentVars);
-	       }
 	}
 	
 	public int GetindependentVars() { return independentVars; }
 	public int GetNumberOfRows()	{ return NumberOfRows; }
-	public DataRow[] GetRows()		{ return Rows; }
+	public DataRow GetRows(int index)		{ return Rows[index]; }
 	
 	/**
 	public void Print()

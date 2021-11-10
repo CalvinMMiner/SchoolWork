@@ -11,9 +11,8 @@ public class DataRow
 		Yvalue=in.nextDouble();
 		Xvalues = new double[NumberOfX];
 		for(int a = 0; a < NumberOfX; a++)
-        {
 			Xvalues[a] = in.nextDouble();
-        }
+        
 	}
 	
 	//standard set of get methods for the variables Yvale and Xvalues
