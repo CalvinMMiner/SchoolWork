@@ -12,4 +12,15 @@ public class GPTree
 	public String toString() { return root.toString(); }
 	public double eval(double[] data) { return root.eval(data); }    
 	public int mySize() { return root.mySize(); }
+	
+	public double eval(DataSet data)
+	{
+		double TotalFitness = 0;
+		for(int a = 0; a < data.GetNumberOfRows(); a++)
+		{
+			double b = ( this.eval( data.GetRows(a).getX() ) - data.GetRows(a).getY()	);
+			TotalFitness += b*b;
+		}
+		return TotalFitness;
+	}
 }

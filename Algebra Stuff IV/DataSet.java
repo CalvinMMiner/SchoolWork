@@ -7,7 +7,7 @@ public class DataSet
 	private static Scanner in;
 	private int independentVars;
 	private int NumberOfRows;
-	public DataRow Rows[];
+	private DataRow Rows[];
 	
 	public DataSet(String DataName)throws FileNotFoundException
     {

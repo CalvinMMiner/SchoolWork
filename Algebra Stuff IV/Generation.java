@@ -27,13 +27,14 @@ public class Generation {
 	//evaluate each tree in this generation, and set each tree's fitness value
 	
 	public void evalAll(DataSet data){
-		//for(int i = 0;i<numTrees;i++)
-			//fitness[i] = population[i].eval(data);
+		for(int i = 0;i<numTrees;i++)
+			fitness[i] = population[i].eval(data);
 	}
 	
 	public GPTree getTree(int i){
 		return population[i];
 	}
+	
 	public void printBestTree(){
 		int i = 0;
 		double[] tempFitness = fitness.clone();
