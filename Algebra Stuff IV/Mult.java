@@ -1,17 +1,31 @@
-//this class takes two doubles and multiples them together
+/**
+ * this class takes two doubles and multiples them together
+ */
 public class Mult extends Binop 
 {
-	public Mult(Node l, Node r) {super(l, r);}// the nodes that will provide the doubles
+	/**
+	 * sets the two child nodes to the given node derivative 
+	 * @param l the child node node on the "left"
+	 * @param r the child node node on the "right"
+	 */
+	public Mult(Node l, Node r) {super(l, r);}
 
 	public Mult() {}
 
-	//the method that multiples the doubles, it also passes down data to be used by variables on the lower branches
+	/**
+	 * multiples the provided doubles, it also passes down data to be used by variables at the end of the tree
+	 * 
+	 * @param data the array of values that variable will use
+	 * @return left child times right child
+	 */
 	public double eval(double[] data){
-		try	{return lChild.eval(data) * rChild.eval(data);	}
-		catch(Exception e) {System.out.println("ops");return 0;}
+		return lChild.eval(data) * rChild.eval(data);
 	}
 	
-	//this returns the toStrings of the branches concatenated with a *
+	/**
+	 * @return this returns the toStrings of the branches concatenated with a * and surrounded by ()
+	 * shortens to lChild squared if the child nodes are identical
+	 */
 	public String toString()
 	{
 		if(lChild.toString().equals(rChild.toString()))

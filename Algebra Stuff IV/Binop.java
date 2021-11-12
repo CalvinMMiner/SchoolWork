@@ -1,29 +1,50 @@
 import java.util.Random;
 
-//this class serves as a template for the +, -, *, and / classes and establishes the tree structure
+/**
+ * this class serves as a template for the +, -, *, and / classes and establishes the tree structure
+ * also holds the mySize and addRandomKids methods that are used to create the expressions
+ */
 public class Binop extends Node 
 {
-	static Random r = new Random();//used to ensure the random number are different when called across different methods
-	protected Node lChild, rChild;//these Nodes are used to create the tree structure  
-	public static int depth;
 	
-	// basic constructor used to set the two branches to something
+	/**the two child nodes that are "beneth" this one*/protected Node lChild, rChild;  
+	/**used to keep track of the depth for addRandomKids*/public static int depth;
+	
+	/**
+	 *  sets the two child nodes to the given node derivative 
+	 * @param l the child node node on the "left"
+	 * @param r the child node node on the "right"
+	 */
 	public Binop(Node l, Node r) {lChild = l; rChild = r;}
 	
 	public Binop() {}
 	
-	//returns the two branches beneath it 
+	/**
+	 * returns the two branches beneath it concatenated with the appropriate operation
+	 * 
+	 * @return the expression lChild + rChild
+	 */
 	public String toString(){	return lChild.toString() + " + "+rChild.toString();	}
 
-	//basic eval so Binop can extend node
+	/**
+	*returns zero since a pure Binop node should not be made  
+	*@return zero
+	*/
 	public double eval(double[] data) {	return 0; }
 	
-	//returns the combined size of both child nodes, plus one to account for the operation, which in turn do the same until a terminal node is hit
+	/**
+	*returns how many nodes are beneath this node plus one for itself
+	*
+	*@return returns the calculated size
+	*/
 	public int mySize() {return ( lChild.mySize() + 1 + rChild.mySize() );}
 	
-	/**this class is used to create the algebra expression: when called depth is incremented by one, saved in personalDepth and checked to see if it has hit or exceeded max depth
-	if not and a if statement is used to determine if a new operation is added to the right node, or if it terminates. once that operation concludes depth is reset to personalDepth to
-	account for any recursions done to add operations and the process is repeated for the left node**/
+	/**
+	 * this class is used to create the algebra expression: when called depth is incremented by one, saved in personalDepth and checked to see if it has hit or exceeded max depth
+	 *if not and a if statement is used to determine if a new operation is added to the right node, or if it terminates. once that operation concludes depth is reset to personalDepth to
+	 *account for any recursions done to add operations and the process is repeated for the left node
+	 *	
+	 */
 	public void addRandomKids(OperatorFactory o, TerminalFactory t, int maxDepth, Random rand) 
 	{
 		depth++; int personalDepth = depth;
