@@ -7,7 +7,7 @@ import java.io.File;
  */
 public class DataSet 
 {
-	/**readeds the provided txt file*/private static Scanner in;
+	/**Reads the provided txt file*/private static Scanner in;
 	/** how many n values are in each row*/private int independentVars;
 	/**how many rows there are*/private int NumberOfRows;
 	/** array to hold all of the rows of data*/private DataRow Rows[];
@@ -21,12 +21,12 @@ public class DataSet
 	 */
 	public DataSet(String DataName)throws FileNotFoundException
     {
-	       in  = new Scanner(new File(DataName));
-	       independentVars = in.nextInt();
-	       NumberOfRows = in.nextInt();
-	       Rows = new DataRow[NumberOfRows];
-	       for(int a = 0; a < NumberOfRows; a++)
-	    	   Rows[a] = new DataRow(in,independentVars);
+	    in  = new Scanner(new File(DataName));
+	    independentVars = in.nextInt();
+	    NumberOfRows = in.nextInt();
+	    Rows = new DataRow[NumberOfRows];
+	    for(int a = 0; a < NumberOfRows; a++)
+	       Rows[a] = new DataRow(in,independentVars);
 	}
 	
 	/**

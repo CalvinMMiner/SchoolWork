@@ -25,7 +25,8 @@ public class TestAlgebra_IV {
     	Scanner sc = new Scanner(System.in);
     	System.out.println("please enter the name of the data set you want to use: ");
     	String DataName = sc.next();sc.close();
-    	try	{
+    	try
+    	{
     		DataSet d = new DataSet(DataName); 
     		g.evalAll(d);	g.printBestTree();
     	}  	
