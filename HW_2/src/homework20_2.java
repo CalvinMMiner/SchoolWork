@@ -32,14 +32,18 @@ public class homework20_2
    }
    public static ListNode mergeTwoLists(LinkedList llist1, LinkedList llist2)
    {
-	  LinkedList combo = new LinkedList(); ListNode first;
-	  if ( llist2.head.value >= combo.head.value ) { first = llist1.head; first.next = llist2.head; }
-	  else { first = llist2.head; first.next = llist1.head; } combo.head = first;
-	  
-	  do {
-		  if ( true ) {}
-	  }while(first.next != null);
-      return combo.head;
+	   ListNode combo = new ListNode(0); ListNode last = combo;
+	   ListNode a = llist1.head; ListNode b = llist2.head;
+	   while(true) 
+	   {
+		   if(a == null) {last.next = b; break;}
+		   if(b == null) {last.next = a; break;}
+		   
+		   if(a.value <= b.value) { last.next = a; a = a.next; }
+		   else { last.next = b; b = b.next; }
+		   last = last.next;
+	   }
+     return combo.next;
    }
 
 }
