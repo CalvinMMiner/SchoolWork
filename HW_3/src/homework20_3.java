@@ -40,9 +40,10 @@ public class homework20_3
    public static void removeNthFromEnd(LinkedList llist, int n)
    {
 	   ListNode ref = llist.head;
-	   if(n==0) { llist.head = llist.head.next;}
-	   for(int a=1;a<n;a++) { ref = ref.next; }
-	   if(ref.next != null) { ref.next = ref.next.next; }
+	   if(n>=5) { llist.head = llist.head.next;}
+	   else for(int a=0;a<(4-n);a++) { ref = ref.next; }
+	   if(ref.next != null) { try { ref.next = ref.next.next; } 
+		   catch(Exception E) {ref.next = null;}   }
    }
 
 }
