@@ -32,8 +32,13 @@ public class homework20_5
    }
    public static int getDecimalValue(ListNode head)
    {
-	   return 0;
-      //add your code here
+	   ListNode ref = head; int total =0, multiple = 4;
+	   while (ref != null)
+	   {
+		   if(ref.value == 1) total += multiple;
+		   multiple = multiple/2; ref = ref.next;
+	   }
+	   return total;
    }
 
 }

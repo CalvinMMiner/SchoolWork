@@ -17,12 +17,42 @@ public class homework20_4
 {
    public static void main(String[] args)
    {
-      //add your code here
+	   LinkedList list = new LinkedList();
+	   Scanner sc = new Scanner(System.in);
+	   System.out.println("please enter the head value");
+	   list.head = new ListNode(sc.nextInt());
+	   System.out.println("please enter the second value");
+	   ListNode second = new ListNode(sc.nextInt()); list.head.next = second; 
+	   System.out.println("please enter the thrid value");
+	   ListNode thrid = new ListNode(sc.nextInt()); second.next = thrid; 
+	   System.out.println("please enter the fourth value");
+	   ListNode fourth = new ListNode(sc.nextInt()); thrid.next = fourth;
+	   System.out.println("please enter the fifth value");
+	   ListNode fifth = new ListNode(sc.nextInt()); fourth.next = fifth;
+	   System.out.println("please enter the value you want removed");
+	   int target = sc.nextInt();  sc.close();
+	  
+	   removeElements(list,target);
+	   System.out.println(list);
    }
    public static void removeElements(LinkedList llist, int val)
    {
-      //add your code here
+	   ListNode ref1 = llist.head, ref2 = llist.head;
+		  
+	   
+	   while(ref1 != null)
+	   {
+		   if(ref1.value == val && ref1 == llist.head) { llist.head = llist.head.next; ref1 =  llist.head;}
+		   else if(ref1.value == val) 
+		   {
+			   try { ref2.next = ref2.next.next; }	catch(Exception E) { ref2.next = null; } 
+			   ref1 = ref2.next;
+		   }
+		   else { ref2 = ref1;	ref1 = ref1.next; }
+	   }
    }
+
+   
 
 }
 class ListNode
@@ -36,6 +66,13 @@ class LinkedList
    ListNode head;
    public String toString()
    {
-     return "add your code here";
+      String nodeData = "";
+      ListNode ref = head;
+      while(ref != null)
+      {
+         nodeData += ref.value + "-->";
+         ref = ref.next;
+      }
+      return "head-->"+nodeData+"null";
    }
 }
