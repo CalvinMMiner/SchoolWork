@@ -68,7 +68,6 @@ public class Generation {
 		while(tempFitness[0]!=fitness[i])//find the smallest value within fitness[]
 			i++;
 		System.out.println(population[i]);
-		System.out.println("The smallest fitness is "+tempFitness[0]);
 	}
 	
 	/**
