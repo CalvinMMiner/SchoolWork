@@ -20,10 +20,16 @@ public class homework9_4
    }
    public static void reverseString(char[] s)
    {
-      //add your code here to reverse the string
+	   int i; char a;
+	   for( i = 0; i < (s.length)/2; i++ )
+	   {
+		   a = s[i];
+		   s[i] = s[s.length - i - 1];
+           s[s.length - i - 1] = a;
+	   }
       
       //print out all of the elements
-      for(int i = 0; i<s.length;i++)
+      for(i = 0; i<s.length;i++)
          System.out.print(s[i]);
       System.out.println();
    }
