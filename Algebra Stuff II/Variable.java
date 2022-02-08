@@ -19,11 +19,10 @@ public class Variable extends Node
 	//creates a double, sets it to a value from data, determined by index, and then returns that double. set in a try catch to make sure index is within the bounds of data
 	public double eval(double[] data)
 	{
-		try	{	double value=data[index];	return value;	}
+		try	{	return data[index];	}
 		catch(Exception E )
 		{
-			try {	index = index-data.length;	}
-			catch(Exception B ) {	index = 0; System.out.println("something whent wromg");}
+			index = index-data.length;	if(index<0)index=0;
 			return eval(data);
 		}
 	}

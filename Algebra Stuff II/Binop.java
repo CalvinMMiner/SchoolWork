@@ -29,10 +29,10 @@ public class Binop extends Node
 		else
 		{
 			if(rand.nextInt(o.getNumOps()+t.getNumIndepVars())<o.getNumOps())
-			{	 lChild = o.getOperator(rand); lChild.addRandomKids(o, t, maxDepth, rand);		}	else lChild = t.getTerminal(rand); 
+			{ lChild = o.getOperator(rand); lChild.addRandomKids(o, t, maxDepth, rand);	} else lChild = t.getTerminal(rand); 
 			depth=personalDepth;
 			if(rand.nextInt(o.getNumOps()+t.getNumIndepVars())<o.getNumOps())
-			{	 rChild = o.getOperator(rand); rChild.addRandomKids(o, t, maxDepth, rand);		}	else rChild = t.getTerminal(rand); 
+			{ rChild = o.getOperator(rand); rChild.addRandomKids(o, t, maxDepth, rand);	} else rChild = t.getTerminal(rand); 
 		}
 	}
 }
