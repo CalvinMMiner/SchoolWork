@@ -44,18 +44,18 @@ public class A1 {
     //----------code for printing the top portion----------------------------
     public static void printTop()
     {
-    	printTopLineType1();
+    	printHashLine();
     	printTopLineType2();
-    	printTopLineType1();
+    	printHashLine();
     }
     
-    public static void printTopLineType1()
+    /**public static void printTopLineType1()
     {
     	printDotsPlus();
     	printHash();
     	printDotsPlus();
     	printBreak();
-    }
+    }*/
     
     public static void printTopLineType2()
     {
@@ -74,11 +74,13 @@ public class A1 {
 		printDots();
     }
     
-    public static void printHash()
+    public static void printHashLine()
     {
-
+    	printDotsPlus();
     	for ( int dot = 0; dot <= (SIZE*2-2); dot++ )
 			System.out.print("#");
+    	printDotsPlus();
+    	printBreak();
     }
     
     public static void printColon()
